@@ -120,6 +120,22 @@ int main(int argc, char **argv)
 {
     bool* g_state = LoadSetupState(argv[1]);
 
+    if(resolution = -1){
+        std::string res;
+        std::cout << "Playspace Resolution? ( 0<->255 )";
+        std::getline( std::cin, res);
+        resolution = atoi(res.c_str());
+        if(resolution <= 0){
+            resolution = 1;
+        }
+        if(resolution > 255){
+            resolution = 255;
+        }
+        
+        g_state = static_cast<bool*>(malloc(resolution*resolution));
+        memset(g_state, 0, resolution*resolution);
+    }
+
     RenderSetup(win_size, resolution);
     step = win_size/resolution;
 

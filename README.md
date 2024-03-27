@@ -4,6 +4,8 @@ The program can be built with the included build file. This build file is intend
 # Execution
 The executable only accepts one argument. This is the name of the binary playspace file to load on startup. Example:
 > ./a.out Flyer.bin
+
+If a nonexistant or invalid playspace file is specified, you will be prompted for the playspace resolution.
 # Controls
 ## Editing
 To edit the play area, click on the window with the mouse cursor. The state of the cell at the mouse cursor will be toggled.

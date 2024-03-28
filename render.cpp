@@ -35,16 +35,35 @@ void RenderClear(){
     SDL_RenderPresent(g_renderer);
 }
 
+void RenderSetPixelCol(int x, int y, int r, int g, int b){
+    SDL_Rect R;
+    R.x = x*g_step;
+    R.y = y*g_step;
+    R.w = g_step;
+    R.h = g_step;
+    SDL_SetRenderDrawColor(g_renderer, r, g, b, 255);
+    SDL_RenderFillRect(g_renderer, &R);
+}
+
 void RenderSetPixel(int x, int y){
-    SDL_Rect r;
-    r.x = x*g_step;
-    r.y = y*g_step;
-    r.w = g_step;
-    r.h = g_step;
-    SDL_SetRenderDrawColor(g_renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(g_renderer, &r);
+    RenderSetPixelCol(x, y, 255, 255, 255);
 }
 
 void RenderPresent(){
     SDL_RenderPresent(g_renderer);
+}
+
+void RenderBGrid(){
+    int i = 0;
+    for(int x = 0; x < g_resolution; x++){
+        for(int y = 0; y < g_resolution; y++){
+            if(i % 2 == 0){
+                RenderSetPixelCol(x, y, 70, 70, 70);
+            }
+            i ++;
+        }
+        if(g_resolution % 2 == 0){
+            i --;
+        }
+    }
 }

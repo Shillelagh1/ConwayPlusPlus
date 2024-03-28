@@ -7,3 +7,4 @@ bool RenderIsExit();
 void RenderClear();
 void RenderSetPixel(int, int);
 void RenderPresent();
+void RenderBGrid();

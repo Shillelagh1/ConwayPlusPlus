@@ -26,6 +26,7 @@ pair idxfrom(int i){
 
 void RenderState(bool* state){
     RenderClear();
+    RenderBGrid();
     for(int x = 0; x < resolution; x++){
         for(int y = 0; y < resolution; y++){
             if(state[idxto(x,y)]){
